@@ -4,6 +4,9 @@ metadata:
   name: mysql-service
   labels:
     app: mysql
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "3306" # Prometheus가 수집할 포트
 spec:
   type: ClusterIP
   clusterIP: None

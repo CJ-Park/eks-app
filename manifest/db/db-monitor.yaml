@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: mysql-service-monitor
+  labels:
+    app: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  namespaceSelector:
+    any: true
+  endpoints:
+    - port: 3306
+      path: metrics
+      interval: 20s
