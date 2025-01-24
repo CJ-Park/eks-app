@@ -2,7 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: mysql-service-monitor
-  namespace: monitoring
+  namespace: eks-app
   labels:
     app: mysql
 spec:
