@@ -13,5 +13,5 @@ spec:
     any: true
   endpoints:
     - port: 3306
-      path: metrics
+      path: /metrics
       interval: 20s
