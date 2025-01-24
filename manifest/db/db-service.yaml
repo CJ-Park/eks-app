@@ -11,7 +11,8 @@ spec:
   type: ClusterIP
   clusterIP: None
   ports:
-    - protocol: TCP
+    - name: db-port
+      protocol: TCP
       port: 3306
       targetPort: 3306
   selector:
