@@ -8,6 +8,6 @@ public class CommonController {
 
     @GetMapping("/api/status")
     public String healthCheck() {
-        return "EKS - ECR - ArgoCD test";
+        return "EKS / AWS Storage (DB) / Monitoring (Prometheus / Grafana) with GitOps & ArgoCD";
     }
 }
