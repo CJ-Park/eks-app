@@ -13,6 +13,6 @@ public class CommonController {
 
     @GetMapping("/change/db")
     public String changeDB() {
-        return "change db ebs to rds";
+        return "change db subnet public to private";
     }
 }
