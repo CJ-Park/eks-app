@@ -4,16 +4,13 @@ metadata:
   name: mysql-service
   labels:
     app: mysql
-  annotations:
-    prometheus.io/scrape: "true"
-    prometheus.io/port: "3306" # Prometheus가 수집할 포트
 spec:
-  type: ClusterIP
-  clusterIP: None
-  ports:
-    - name: db-port
-      protocol: TCP
-      port: 3306
-      targetPort: 3306
-  selector:
-    app: mysql
+  type: ExternalName
+  externalName: rds-endpoint
+#  ports:
+#    - name: db-port
+#      protocol: TCP
+#      port: 3306
+#      targetPort: 3306
+#  selector:
+#    app: mysql
