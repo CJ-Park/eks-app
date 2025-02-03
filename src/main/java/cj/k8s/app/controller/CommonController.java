@@ -10,4 +10,9 @@ public class CommonController {
     public String healthCheck() {
         return "EKS / AWS Storage (DB) / Monitoring (Prometheus / Grafana) with GitOps & ArgoCD";
     }
+
+    @GetMapping("/change/db")
+    public String changeDB() {
+        return "change db ebs to rds";
+    }
 }
