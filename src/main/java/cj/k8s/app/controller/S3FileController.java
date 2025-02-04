@@ -27,4 +27,9 @@ public class S3FileController {
     public ResponseEntity<Resource> downloadS3File(@PathVariable("fileNo") long fileNo) throws Exception {
         return s3Service.downloadS3File(fileNo);
     }
+
+    @DeleteMapping(value = "/files/{fileNo}")
+    public void deleteS3File(@PathVariable("fileNo") long fileNo) throws Exception {
+        s3Service.deleteS3File(fileNo);
+    }
 }

@@ -119,4 +119,12 @@ public class S3Service {
         return new ResponseEntity<>(resource, headers, HttpStatus.OK);
     }
 
+    public void deleteS3File(long fileNo) {
+        AttachmentFile attachmentFile = fileRepository.findById(fileNo)
+                .orElseThrow(() -> new NoSuchElementException("파일이 존재하지 않음"));
+
+        amazonS3.deleteObject(bucketName, DIR_NAME + DIR_DELIMITER + attachmentFile.getAttachmentFileName());
+
+        fileRepository.deleteById(fileNo);
+    }
 }
