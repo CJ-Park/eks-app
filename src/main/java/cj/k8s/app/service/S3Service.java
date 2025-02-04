@@ -23,6 +23,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.NoSuchElementException;
 import java.util.UUID;
 
@@ -51,13 +52,15 @@ public class S3Service {
         }
 
         // DB 저장
-        String path = "/Users/cj/CE/97.data/" + DIR_NAME;
+        String path = "~/" + DIR_NAME;
         String attachmentOriginalFileName = file.getOriginalFilename();
         String uuid = UUID.randomUUID().toString();
         String attachmentFileName = uuid + DELIMITER + attachmentOriginalFileName;
         Long attachmentFileSize = file.getSize();
         String filePath = path + DIR_DELIMITER + attachmentFileName;
         System.out.println(filePath);
+
+        Files.createDirectories(Paths.get(path));
 
         AttachmentFile attachmentFile = AttachmentFile.builder()
                 .attachmentFileName(attachmentFileName)
