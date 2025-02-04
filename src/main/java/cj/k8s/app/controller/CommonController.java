@@ -15,4 +15,9 @@ public class CommonController {
     public String changeDB() {
         return "change db subnet public to private";
     }
+
+    @GetMapping("/add/actuator")
+    public String addActuator() {
+        return "add actuator";
+    }
 }
