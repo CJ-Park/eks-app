@@ -52,7 +52,7 @@ public class S3Service {
         }
 
         // DB 저장
-        String path = "~/" + DIR_NAME;
+        String path = "/tmp/" + DIR_NAME;
         String attachmentOriginalFileName = file.getOriginalFilename();
         String uuid = UUID.randomUUID().toString();
         String attachmentFileName = uuid + DELIMITER + attachmentOriginalFileName;
