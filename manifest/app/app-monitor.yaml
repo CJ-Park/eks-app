@@ -1,18 +1,18 @@
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-  name: test-app-service
-  namespace: eks-app
-  labels:
-    app.kubernetes.io/name: test-app-service
-spec:
-  endpoints:
-    - interval: 30s
-      path: /actuator/metrics
-      port: http-metrics
-  namespaceSelector:
-    matchNames:
-      - eks-app
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: test-app
+#apiVersion: monitoring.coreos.com/v1
+#kind: ServiceMonitor
+#metadata:
+#  name: test-app-service
+#  namespace: eks-app
+#  labels:
+#    app.kubernetes.io/name: test-app-service
+#spec:
+#  endpoints:
+#    - interval: 30s
+#      path: /actuator/metrics
+#      port: http-metrics
+#  namespaceSelector:
+#    matchNames:
+#      - eks-app
+#  selector:
+#    matchLabels:
+#      app.kubernetes.io/name: test-app
