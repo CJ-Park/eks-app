@@ -20,4 +20,9 @@ public class CommonController {
     public String addActuator() {
         return "add actuator";
     }
+
+    @GetMapping("/add/nlb")
+    public String addNlb() {
+        return "add nlb";
+    }
 }
