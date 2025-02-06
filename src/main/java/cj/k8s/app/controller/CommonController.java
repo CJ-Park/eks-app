@@ -21,8 +21,8 @@ public class CommonController {
         return "add actuator";
     }
 
-    @GetMapping("/add/nlb")
-    public String addNlb() {
-        return "add nlb";
+    @GetMapping("/add/alb")
+    public String addAlb() {
+        return "add alb";
     }
 }
