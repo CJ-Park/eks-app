@@ -29,7 +29,7 @@ public class S3FileController {
     }
 
     @DeleteMapping(value = "/files/{fileNo}")
-    public void deleteS3File(@PathVariable("fileNo") long fileNo) throws Exception {
+    public void deleteS3File(@PathVariable("fileNo") long fileNo) {
         s3Service.deleteS3File(fileNo);
     }
 }

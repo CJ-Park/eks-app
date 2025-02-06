@@ -63,6 +63,7 @@ public class S3Service {
         Files.createDirectories(Paths.get(path));
 
         AttachmentFile attachmentFile = AttachmentFile.builder()
+                .filePath(filePath)
                 .attachmentFileName(attachmentFileName)
                 .attachmentFileSize(attachmentFileSize)
                 .attachmentOriginalFileName(attachmentOriginalFileName)
