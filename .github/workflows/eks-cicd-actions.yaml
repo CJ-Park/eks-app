@@ -86,9 +86,29 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --local user.email "king01286@naver.com"
-          git config --local user.name "CJ-Park"
+          git config --local user.email ${{ secrets.USER_EMAIL }}
+          git config --local user.name ${{ secrets.MANIFEST_USER }}
           
           git add ./manifest/app/app-deployment.yaml
+          git commit -m "Update manifest deployment yaml file for argoCD"
+          git push
+
+      - name: Checkout Manifest Repo for update image version
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.MANIFEST_USER }}/${{ secrets.MANIFEST_REPOSITORY }}
+          ref: main
+          token: ${{ secrets.TOKEN }}
+
+      - name: Set up Image
+        run: |
+          sed -i "s%image: ${{ secrets.ECR_URL }}:[A-z0-9]*%image: ${{ secrets.ECR_URL }}:${{ github.sha }}%" ./manifest/app/app-deployment.yaml
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email ${{ secrets.USER_EMAIL }}
+          git config --local user.name ${{ secrets.MANIFEST_USER }}
+          
+          git add .
           git commit -m "Update manifest deployment yaml file for argoCD"
           git push
